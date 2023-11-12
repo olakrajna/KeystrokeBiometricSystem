@@ -100,7 +100,7 @@ while True:
             your_time = []
             average_time = sum(all_time)/len(all_time)
         else:
-            print("Hasło niepoprawne. Spróbuj ponownie.")
+            print("Hasło niepoprawne. Spróbuj ponowne.")
             take_key = []
             cleaned_list = []
             your_time = []
