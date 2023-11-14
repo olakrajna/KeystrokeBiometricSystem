@@ -1,6 +1,1 @@
-1. To jest próbny test. Zobaczymy jak sobie poradzisz
-2. To jest próbny test. Zobaczymy jak sobie poradzisz
-3. To jest próbny test. Zobaczymy jak sobie poradzisz
-4. To jest próbny test. Zobaczymy jak sobie poradzisz
-5. To jest próbny test. Zobaczymy jak sobie poradzisz
-6. To jest próbny test. Zobaczymy jak sobie poradzisz
+Reakcja chemiczna (przemiana chemiczna) to przemiana, w czasie ktorej z jednych substancji powstaja inne, o odmiennych wlasciwosciach fizycznych i chemicznych. Do przykladow reakcji chemicznych naleza: rdzewienie zelaza i jego stopow - powierzchnia zelaza w wilgotnej atmosferze pokrywa sie jego tlenkami w postaci brunatnych plam (powstaja nowe zwiazki chemiczne - tlenki zelaza).
