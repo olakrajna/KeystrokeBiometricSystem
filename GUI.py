@@ -90,6 +90,8 @@ class FirstPage(QMainWindow):
         self.setFixedSize(1420, 800)
         self.login_button.clicked.connect(self.go_to_login_page)
         self.create_account_button.clicked.connect(self.go_to_create_account_page)
+        self.register_button.clicked.connect(self.go_to_register_page)
+        self.identify_button.clicked.connect(self.go_to_identify_page)
         self.background_label.setGeometry(50, 50, 1320, 700)
         self.background_label.setPixmap(QPixmap("images/las.jpg"))
 
@@ -102,11 +104,50 @@ class FirstPage(QMainWindow):
         login_page = LoginPage()
         widget.addWidget(login_page)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+    def go_to_identify_page(self):
+        identify_page = IdentifyPage()
+        widget.addWidget(identify_page)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_register_page(self):
+        register_page =RegisterPage()
+        widget.addWidget(register_page)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
 class LoginPage(QMainWindow):
     def __init__(self):
         super(LoginPage, self).__init__()
         loadUi("ui/login_page1.ui", self)
+        self.background_label.setGeometry(50, 50, 1320, 700)
+        self.background_label.setPixmap(QPixmap("images/las.jpg"))
+        self.back_button.setIcon(QtGui.QIcon("images/back.png"))
+        self.back_button.clicked.connect(self.go_to_first_page)
+
+    def go_to_first_page(self):
+        first_page = FirstPage()
+        widget.addWidget(first_page)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+class IdentifyPage(QMainWindow):
+    def __init__(self):
+        super(IdentifyPage, self).__init__()
+        loadUi("ui/identify_page.ui", self)
+        self.background_label.setGeometry(50, 50, 1320, 700)
+        self.background_label.setPixmap(QPixmap("images/las.jpg"))
+        self.back_button.setIcon(QtGui.QIcon("images/back.png"))
+        self.back_button.clicked.connect(self.go_to_first_page)
+
+    def go_to_first_page(self):
+        first_page = FirstPage()
+        widget.addWidget(first_page)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+class RegisterPage(QMainWindow):
+    def __init__(self):
+        super(RegisterPage, self).__init__()
+        loadUi("ui/register_page.ui", self)
         self.background_label.setGeometry(50, 50, 1320, 700)
         self.background_label.setPixmap(QPixmap("images/las.jpg"))
         self.back_button.setIcon(QtGui.QIcon("images/back.png"))
