@@ -197,7 +197,7 @@ QPushButton:pressed {
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>197</y>
+          <y>137</y>
           <width>241</width>
           <height>61</height>
          </rect>
@@ -235,7 +235,70 @@ QPushButton:pressed {
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>170</y>
+          <y>110</y>
+          <width>241</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Nirmala UI Semilight</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(179, 179, 179);</string>
+        </property>
+        <property name="text">
+         <string>Don't have an account?</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="create_account_button_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>250</y>
+          <width>301</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Nirmala UI Semilight</family>
+          <pointsize>15</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <underline>false</underline>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(170,170,170), stop:1 rgba(85, 112, 98, 219));
+border-radius: 10px;
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(85,112,98,219), stop:1 rgb(170,170,170));
+}
+
+QPushButton:pressed {
+	padding-left: 5px;
+	padding-top: 5px;
+	background-color: rgba(105,118,132,200);
+}</string>
+        </property>
+        <property name="text">
+         <string>Complete the sessions</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>223</y>
           <width>241</width>
           <height>20</height>
          </rect>
