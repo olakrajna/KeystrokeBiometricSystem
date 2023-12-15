@@ -137,19 +137,13 @@ class Mistakes():
                 letter_extra_numeric = self.assign_numbers_to_alphabet(letter_extra)
                 letter_miss_numeric = self.assign_numbers_to_alphabet(letter_miss)
 
-                sorted_extra_numeric = sorted(letter_extra_numeric)
-                sorted_miss_numeric = sorted(letter_miss_numeric)
-                sorted_diff_numeric = sorted(letter_diff_numeric)
-
-                extra_numeric = self.pair_to_one(sorted_extra_numeric)
-                miss_numeric = self.pair_to_one(sorted_miss_numeric)
-                diff_numeric = self.pair_to_one_diff(sorted_diff_numeric)
+                extra_numeric = self.pair_to_one(letter_extra_numeric)
+                miss_numeric = self.pair_to_one(letter_miss_numeric)
+                diff_numeric = self.pair_to_one_diff(letter_diff_numeric)
 
                 extra_numeric += [0] * (10 - len(extra_numeric))
                 miss_numeric += [0] * (10 - len(miss_numeric))
                 diff_numeric += [0] * (10 - len(diff_numeric))
-
-
 
                 features = [username, self.typing_count, self.bs_count, self.dlt_count, wpm, similarity]
                 features.extend(diff_numeric)
@@ -177,5 +171,5 @@ class Mistakes():
             for features in self.all_features:
                 writer.writerow(features)
 
-mistakes = Mistakes()
-mistakes.main()
+# mistakes = Mistakes()
+# mistakes.main()
