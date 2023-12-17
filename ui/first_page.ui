@@ -57,7 +57,7 @@ border-radius: 20px;</string>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>70</x>
          <y>100</y>
          <width>1220</width>
          <height>650</height>
@@ -118,7 +118,7 @@ border-radius: 20px;</string>
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>137</y>
+          <y>170</y>
           <width>241</width>
           <height>61</height>
          </rect>
@@ -152,36 +152,11 @@ QPushButton:pressed {
          <string>Register</string>
         </property>
        </widget>
-       <widget class="QLabel" name="register_label">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>110</y>
-          <width>241</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Nirmala UI Semilight</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(179, 179, 179);</string>
-        </property>
-        <property name="text">
-         <string>Don't have an account?</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
        <widget class="QPushButton" name="identify_button">
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>247</y>
+          <y>290</y>
           <width>241</width>
           <height>61</height>
          </rect>
@@ -213,31 +188,6 @@ QPushButton:pressed {
         </property>
         <property name="text">
          <string>Identify me</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="identify_label">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>220</y>
-          <width>241</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Nirmala UI Semilight</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(179, 179, 179);</string>
-        </property>
-        <property name="text">
-         <string>Don't have an account?</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </widget>
@@ -273,7 +223,7 @@ QPushButton:pressed {
        <property name="geometry">
         <rect>
          <x>840</x>
-         <y>190</y>
+         <y>200</y>
          <width>331</width>
          <height>441</height>
         </rect>
@@ -322,32 +272,7 @@ QPushButton:pressed {
          <string>Create account</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_6">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>110</y>
-          <width>241</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Nirmala UI Semilight</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(179, 179, 179);</string>
-        </property>
-        <property name="text">
-         <string>Don't have an account?</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="create_account_button_2">
+       <widget class="QPushButton" name="complete_sessions_button">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -383,31 +308,6 @@ QPushButton:pressed {
         </property>
         <property name="text">
          <string>Complete the sessions</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_7">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>223</y>
-          <width>241</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Nirmala UI Semilight</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(179, 179, 179);</string>
-        </property>
-        <property name="text">
-         <string>Don't have an account?</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="login_button">
@@ -467,7 +367,7 @@ QPushButton:pressed {
          <string notr="true">color: rgb(179, 179, 179);</string>
         </property>
         <property name="text">
-         <string>Already have a account?</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

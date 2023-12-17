@@ -57,6 +57,11 @@ background-image: url(:/images/images/las.jpg);</string>
       <height>650</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Nirmala UI Semilight</family>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(0,0,0,100);
 border-radius: 20px;</string>
@@ -112,7 +117,7 @@ padding-bottom: 12px;
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>510</y>
+      <y>540</y>
       <width>380</width>
       <height>71</height>
      </rect>
@@ -179,16 +184,18 @@ padding-bottom: 12px;
    <widget class="QLabel" name="conf_password_info_label">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>520</y>
-      <width>381</width>
-      <height>16</height>
+      <x>500</x>
+      <y>500</y>
+      <width>411</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Nirmala UI Semilight</family>
-      <pointsize>10</pointsize>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -196,6 +203,9 @@ padding-bottom: 12px;
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -264,6 +274,7 @@ padding-bottom: 12px;
     </property>
     <property name="font">
      <font>
+      <family>Nirmala UI Semilight</family>
       <pointsize>13</pointsize>
       <underline>false</underline>
      </font>
@@ -284,6 +295,9 @@ Your task is to type the character string '.ego1buslix' 30 times in this session
     </property>
     <property name="wordWrap">
      <bool>true</bool>
+    </property>
+    <property name="indent">
+     <number>-1</number>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
