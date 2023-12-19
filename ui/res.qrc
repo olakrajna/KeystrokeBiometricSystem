@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="images">
+    <file>back.png</file>
+    <file>las.jpg</file>
+  </qresource>
+</RCC>
