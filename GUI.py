@@ -19,7 +19,6 @@ from EER import evaluateEER
 from scipy.spatial.distance import euclidean, cityblock
 import pandas as pd
 
-
 class KeyPressInterceptor(QThread):
     keyPressed = pyqtSignal(str)
     password_info_signal = pyqtSignal(str)
@@ -27,7 +26,6 @@ class KeyPressInterceptor(QThread):
     clear_password_label_signal = pyqtSignal(bool)
     user_time_list_signal = pyqtSignal(list)
     end_session_signal = pyqtSignal(bool)
-
     def __init__(self):
         super().__init__()
         self.take_key = []
@@ -54,7 +52,7 @@ class KeyPressInterceptor(QThread):
             keyboard.Key.f22, keyboard.Key.f23, keyboard.Key.f24, keyboard.Key.print_screen, keyboard.Key.scroll_lock,
             keyboard.Key.pause, keyboard.Key.insert, keyboard.Key.home, keyboard.Key.end, keyboard.Key.page_up,
             keyboard.Key.page_down, keyboard.Key.num_lock, keyboard.Key.left, keyboard.Key.right, keyboard.Key.up,
-            keyboard.Key.down, keyboard.Key.menu, keyboard.Key.media_play_pause, keyboard.Key.cmd, keyboard.Key.cmd_l,
+            keyboard.Key.down, keyboard.Key.menu, keyboard.Key.media_play_pause,keyboard.Key.cmd, keyboard.Key.cmd_l,
             keyboard.Key.cmd_r
 
         }
@@ -146,7 +144,6 @@ class KeyPressInterceptor(QThread):
 
     def stop_listening(self):
         self._run_flag = False
-
 
 class KeyPressInterceptor2(QThread):
     keyPressed = pyqtSignal(str)
@@ -256,6 +253,7 @@ class KeyPressInterceptor2(QThread):
                 self.take_key = []
                 self.cleaned_list = []
                 self.your_time = []
+
 
     def run(self):
         self.start_listening()
@@ -497,6 +495,7 @@ class SessionContinuationPage(QMainWindow):
                     last_rep = row['rep']
         return int(last_rep)
 
+
     def login(self, username):
         if self.check_value_in_csv(username):
             self.username_info_label.setStyleSheet("color: rgb(153, 255, 153)")
@@ -569,7 +568,6 @@ class SessionContinuationPage(QMainWindow):
         first_page = FirstPage()
         widget.addWidget(first_page)
         widget.setCurrentIndex(widget.currentIndex() + 1)
-
 
 class FirstPage(QMainWindow):
     def __init__(self):
@@ -689,8 +687,7 @@ class LoginPage(QMainWindow):
             self.username_info_label.setText("Username does not exist!")
         else:
             if self.get_last_rep_for_subject(username) < 90:
-                self.username_info_label.setText(
-                    "Insufficient test data. Please return to the session and input new data. :)")
+                self.username_info_label.setText("Insufficient test data. Please return to the session and input new data. :)")
             else:
                 self.username_info_label.setStyleSheet("color: rgb(153, 255, 153)")
                 self.username_info_label.setText("The correct username. :)")
@@ -724,7 +721,7 @@ class LoginPage(QMainWindow):
         self.train = self.train.drop(self.train.index[dropping_indices])
         self.mean_vector = self.train.mean().values
         self.all_mean_vector.append(self.mean_vector)
-        print(self.all_mean_vector)
+
 
     def testing(self, vector_2):
 
@@ -746,13 +743,14 @@ class LoginPage(QMainWindow):
                                 "H.dot":"H.x"]
             imposter_data = self.data.loc[self.data.subject != subject, :]
 
-            self.train = genuine_user_data[20:90]
-            self.test_genuine = genuine_user_data[80:]
+            self.train = genuine_user_data[20:85]
+            self.test_genuine = genuine_user_data[85:]
             self.test_imposter = imposter_data.groupby("subject"). \
                                      head(5).loc[:, "H.dot":"H.x"]
 
             self.training()
             self.testing(vector)
+
 
     @pyqtSlot(str)
     def password_info(self, info):
@@ -771,14 +769,14 @@ class LoginPage(QMainWindow):
         if info:
             self.password_lineEdit.clear()
 
+
     @pyqtSlot(list)
     def verification(self, time_list):
         self.evaluate(time_list)
 
-
 class UserPage(QMainWindow):
-    def init(self, name):
-        super(UserPage, self).init()
+    def __init__(self, name):
+        super(UserPage, self).__init__()
         loadUi("ui/user_page.ui", self)
         self.background_label.setGeometry(50, 50, 1320, 700)
         self.background_label.setPixmap(QPixmap("images/las.jpg"))
@@ -877,12 +875,11 @@ class IdentifyPage(QMainWindow):
         vector.extend(extra_numeric)
         vector.extend(miss_numeric)
 
-        vector_numeric = [float(value) if isinstance(value, (int, float, str)) else 0 for value in vector]
 
         self.typing_start_time = 0
         self.typing_end_time = 0
 
-        return vector_numeric
+        return vector
 
     def evaluate(self, vector):
 
@@ -891,13 +888,14 @@ class IdentifyPage(QMainWindow):
                                 'BackspaceCount':'Miss_9']
             imposter_data = self.data.loc[self.data.User != user, :]
 
-            self.train = genuine_user_data[:15]
-            self.test_genuine = genuine_user_data[15:]
+            self.train = genuine_user_data[:3]
+            self.test_genuine = genuine_user_data[3:]
             self.test_imposter = imposter_data.groupby("User"). \
                                      head(5).loc[:, 'BackspaceCount':'Miss_9']
 
             self.training()
-            self.testing(vector, user)
+
+            self.testing(vector)
 
     def training(self):
         self.mean_vector = self.train.mean().values
@@ -906,17 +904,17 @@ class IdentifyPage(QMainWindow):
         for i in range(self.train.shape[0]):
             cur_score = euclidean(self.train.iloc[i].values,
                                   self.mean_vector)
-            if (cur_score > 3 * self.std_vector).all() == True:
+            if (cur_score > 2 * self.std_vector).all() == True:
                 dropping_indices.append(i)
         self.train = self.train.drop(self.train.index[dropping_indices])
         self.mean_vector = self.train.mean().values
         self.all_mean_vector.append(self.mean_vector)
 
-    def testing(self, user_vector, user_name):
+    def testing(self, user_vector):
         for idx, vector in enumerate(self.all_mean_vector):
-            self.manhattan_distance = cityblock(user_vector, vector)
-
-            if self.manhattan_distance <= 2.1:
+            self.manhattan_distance = cityblock(vector, user_vector)
+            print(self.users[idx], self.manhattan_distance)
+            if self.manhattan_distance < 70:
                 self.user_label.setText(self.users[idx])
                 return
             else:
@@ -1104,7 +1102,7 @@ class RegisterPage(QMainWindow):
         new_letter = []
         for a, b in letter:
             new_a = a * 100
-            new = str(new_a + b).zfill(4)
+            new = new_a + b
             new_letter.append(new)
 
         return new_letter
